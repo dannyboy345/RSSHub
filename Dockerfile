@@ -73,6 +73,7 @@ COPY --from=dep-builder /app /app
 WORKDIR /app
 RUN \
     set -ex && \
+    mkdir -p /app/assets/build && \
     pnpm build && \
     rm -rf /app/lib && \
     cp /app/scripts/docker/minify-docker.js /minifier/ && \
